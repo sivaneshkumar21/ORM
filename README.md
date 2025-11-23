@@ -35,12 +35,32 @@ Apply the migration files of the created app to the database
 Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
+```
+rom django.db import models
+from django.contrib import admin
+class product(models.Model):
+    productname=models.CharField(primary_key=True,max_length=30)
+    ProductID=models.CharField(max_length=30)
+    category=models.CharField(max_length=10)
+    Description=models.CharField(max_length=200)
+    stock=models.IntegerField()
+    price=models.IntegerField()
+class productAdmin(admin.ModelAdmin):
+    list_display=["productname","ProductID","category","Description","stock","price"]
 
+
+admin.py
+from django.contrib import admin
+from .models import product,productAdmin
+admin.site.register(product,productAdmin)
+
+
+```
 
 
 ## OUTPUT
 
-
+![alt text](<Screenshot (19).png>)
 
 ## RESULT
 Thus the program for creating E-commerce website database using ORM hass been executed successfully
